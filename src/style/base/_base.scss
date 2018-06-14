@@ -1,0 +1,31 @@
+body,
+* {
+	font-family: 'VentiCF-Regular';
+	color: #252525;
+}
+
+header {
+	padding: 10px;
+	// Media Queries
+	@media (min-width: 768px) {
+		padding-left: 0;
+	}
+}
+body {
+	background-color: #fafafa;
+}
+h1,
+h2,
+h3,
+h4 {
+	font-family: 'VentiCF-Bold';
+}
+
+strong {
+	font-family: 'VentiCF-Medium';
+}
+
+p,
+small {
+	font-family: 'VentiCF-Regular';
+}

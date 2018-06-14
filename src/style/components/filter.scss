@@ -1,0 +1,208 @@
+// FILTER COMPONENT
+// ----------------------------------------------------------
+@import '../base/variable';
+@import '../base/mixin';
+.filter-container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-left: 10px; // Media Queries
+  @media (min-width: 768px) {
+    padding-left: 0;
+  }
+}
+
+.filter-group {
+  display: inline-block;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+  }
+}
+
+.filter-list {
+  display: inline-block;
+  li {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
+.select-custom {
+  background-color: #fff;
+  border-radius: 20px;
+  border: 2px solid $brand-color;
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 10px;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  vertical-align: middle;
+  width: 90px;
+  @include transition(background 0.2s);
+  &:hover {
+    background: $brand-color;
+    select {
+      color: $color-light;
+    }
+    .icon-chevron-down path {
+      fill: $color-light;
+    }
+  }
+  .icon-chevron-down {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 10px;
+    path {
+      @include transition(fill 0.2s);
+    }
+  }
+}
+
+.select-custom_l {
+  width: 160px;
+}
+
+.select-custom select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+  color: $brand-color;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: 'VentiCF-Medium';
+  font-weight: 600;
+  padding: 5px 8px;
+  text-transform: capitalize;
+  width: 100%;
+  @include transition(color 0.2s);
+}
+
+.select-custom select:focus {
+  outline: none;
+}
+
+.select-custom select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+// BUTTON
+.btn {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  border-radius: 20px;
+  border: 2px solid $brand-color;
+  cursor: pointer;
+  color: $brand-color;
+  font-size: 15px;
+  font-family: 'VentiCF-Medium';
+  font-weight: 600;
+  padding: 5px 10px;
+  outline: none;
+  text-transform: capitalize;
+  vertical-align: middle;
+  @include transition(background 0.2s, color 0.2s);
+  &:hover {
+    background: $brand-color;
+    color: $color-light;
+  }
+  &.active {
+    background: $brand-color;
+    color: $color-light;
+  }
+}
+
+.btn-block {
+  display: block;
+  width: 180px;
+  text-decoration: none;
+  margin: 20px;
+  .icon-back {
+    width: 15px;
+    margin-right: 10px;
+    vertical-align: middle;
+    path {
+      fill: $brand-color;
+      @include transition(fill 0.2s);
+    }
+  }
+  &:hover {
+    .icon-back path {
+      fill: #fff;
+    }
+  } // Media Queries
+  @media (min-width: 768px) {
+    margin: 0;
+    margin-top: 20px;
+  }
+}
+
+.btn-redirect {
+  border-radius: 20px;
+  border: none;
+  background: #ffa41c;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 15px;
+  font-family: 'VentiCF-Medium';
+  font-weight: 600;
+  padding: 8px 10px;
+  text-decoration: none;
+  @include transition(background 0.2s);
+  &:hover {
+    background: darken(#ffa41c, 10%);
+  } // Media Queries
+  @media (min-width: 768px) {
+    float: right;
+  }
+}
+
+.status {
+  font-weight: 600;
+  &:before {
+    content: '';
+    border-radius: 100%;
+    display: inline-block;
+    height: 6px;
+    margin-right: 5px;
+    vertical-align: middle;
+    width: 6px;
+  }
+  &.success:before {
+    background-color: #00d7af;
+  }
+  &.success {
+    color: #00d7af;
+  }
+  &.failed:before {
+    background-color: #e41f39;
+  }
+  &.failed {
+    color: #e41f39;
+  }
+}
+
+.result-hint {
+  margin-bottom: 20px;
+  padding-left: 10px;
+  .hint {
+    font-size: 14px;
+    strong {
+      color: $brand-color;
+    }
+    vertical-align: middle;
+  }
+  @media (min-width: 768px) {
+    padding-left: 0;
+  }
+}

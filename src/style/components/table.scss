@@ -1,0 +1,171 @@
+// TABLE COMPONENT
+// ----------------------------------------------------------
+@import '../base/variable';
+@import '../base/mixin';
+
+.table {
+	display: block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.table-head {
+  display: none;
+}
+
+.table-body {
+  display: block;
+  .table-row {
+    border-radius: 4px;
+    box-shadow: 0px 1px 2px rgba(207, 95, 95, 0.3);
+  }
+}
+
+.table-row {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.table-col-heading,
+.table-col {
+  display: block;
+}
+
+.table-col-heading {
+  color: $color-light;
+  font-family: 'VentiCF-Medium';
+  padding: 15px;
+  text-align: left;
+  text-transform: capitalize;
+}
+
+.table-col {
+  font-size: 14px;
+  @include flexbox();
+  .table-col--content {
+    font-size: 14px;
+    text-align: right;
+    padding: 10px;
+    @include flex-grow(1);
+  }
+  .table-col--label {
+    background-color: $brand-color;
+    color: $color-light;
+    font-size: 15px;
+    font-weight: 600;
+    width: 25%;
+    padding: 10px 8px;
+  }
+  &:first-child .table-col--label {
+    border-top-left-radius: $border-radius;
+  }
+  &:last-child .table-col--label {
+    border-bottom-left-radius: $border-radius;
+  }
+  .table-col--content {
+    &.hash {
+			span {
+				color: $brand-color-dark;
+			}
+    }
+    &.from,
+    &.to {
+			span {
+				color: #8c8c8c;
+			}
+    }
+    &.detail {
+      a {
+        color: $brand-color;
+        font-weight: 600;
+        text-decoration: none;
+        @include transition(color 0.2s);
+      }
+      .icon-view {
+        margin-left: 5px;
+        cursor: pointer;
+        vertical-align: middle;
+        width: 20px;
+        path {
+          fill: $brand-color;
+          @include transition(fill 0.2s);
+        }
+      }
+      &:hover {
+        a {
+          color: darken($brand-color, 10%);
+        }
+        .icon-view path {
+          fill: darken($brand-color, 10%);
+        }
+      }
+    }
+  }
+}
+
+// BIG SCREEN STYLING
+@mixin table-md() {
+  .table {
+    display: table;
+    border-radius: 4px;
+    box-shadow: 0px 1px 2px rgba(207, 95, 95, 0.3);
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  .table-head {
+    background-color: $brand-color;
+    display: table-header-group;
+  }
+  .table-body {
+    display: table-row-group;
+    .table-row {
+      box-shadow: none;
+    }
+    .table-row:nth-child(odd) {
+      .table-col {
+        background-color: $color-light;
+      }
+    }
+    .table-row:nth-child(even) {
+      .table-col {
+        background-color: $brand-color-light;
+      }
+    }
+  } // Table border radius
+  .table-row:first-child .table-col-heading:first-child {
+    border-top-left-radius: $border-radius;
+  }
+  .table-row:first-child .table-col-heading:last-child {
+    border-top-right-radius: $border-radius;
+  }
+  .table-row:last-child .table-col:first-child {
+    border-bottom-left-radius: $border-radius;
+  }
+  .table-row:last-child .table-col:last-child {
+    border-bottom-right-radius: $border-radius;
+  }
+  .table-row {
+    display: table-row;
+  }
+  .table-col-heading,
+  .table-col {
+    display: table-cell;
+  }
+  .table-col {
+    .table-col--content {
+      display: block;
+      text-align: left;
+      padding: 15px;
+    }
+    .table-col--label {
+      display: none;
+    }
+  }
+}
+
+// Media Queries
+@media (min-width: 768px) {
+  @include table-md();
+}

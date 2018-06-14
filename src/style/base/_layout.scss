@@ -1,0 +1,30 @@
+@import './variable';
+
+.container {
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+}
+
+@mixin container--lg() {
+  .container {
+		width: $container-width;
+  }
+}
+
+.flex-row {
+	display: flex;
+	justify-content: center;
+	.col {
+		flex: 1;
+	}
+}
+
+// Media Queries
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 1024px) {
+  @include container--lg()
+}
